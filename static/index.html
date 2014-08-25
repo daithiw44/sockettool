@@ -1,0 +1,100 @@
+<htmL>
+<head>
+<title>Socket Control</title>
+<style>
+.right {
+  display:inline;
+  float:left;
+  border: solid 1px #ccc;
+  margin: 5px;
+  padding: 5px;
+  min-width:300px;
+  overflow: auto;
+}
+.left{
+  display:inline;
+  float:left;
+  border: solid 1px #ccc;
+  margin: 5px;
+  padding: 5px;
+  width:70%;
+}
+.broadcaster{
+  border: solid 1px #ccc;
+  margin: 0 auto;
+  padding: 5px;
+
+}
+</style>
+</head>
+<body class="yui3-skin-sam">
+<div id="errorwatch" style="display:none">
+Error - <span id="error"></span>
+</div>
+<div id="container">
+<div class="left">
+<h3>Message</h3>
+<p>
+to get the message field in a response - format is as follows
+</br>
+<i>
+{"uid":"44","method":"get","request":"foo"}</br>
+where uid is the user id the conn was made with.
+Response will be {"e":0,"method":"foo","messages":{"test":"test"}}
+</i>
+</p>
+<div id="dtable" width="70%"></div>
+<input type="button" id="addmsg" value="Add Message"/>
+<input type="button" id="addbc" value="Create Broadcast"/>
+
+<div id="panelContent">
+    <div class="yui3-widget-bd">
+        <form>
+            <fieldset>
+                 <p>
+                    <label for="name">Request Name</label><br/>
+                    <input type="text" name="name" id="name" value="" placeholder="">
+                </p>
+                <p>
+                    <label for="message">Message</label><br/>
+                    <textarea type="text" cols="50" rows="10" name="message" id="message" value="" placeholder=""></textarea>
+                </p>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<div id="panelCast">
+    <div class="yui3-widget-bd">
+        <h4>Socket Messages</h4>
+        <h5>Select Channel</h5>
+        <div>
+          <span id="selectchannel">
+          </span><input type="button" id="addchannel" value="Add New Channel"/><span id="channelfb"></span>
+          <div id="newchannel" style="display:none">
+             <input type="text" id="newchannelValue" value="" placeholder=""><input type="button" id="sendchannel" value="Create Channel"/><input type="button" id="csendchannel" value="cancel"/>
+             </div>
+              <div>
+                    <label for="message">Message</label><br/>
+                    <textarea type="text" cols="50" rows="10" name="message" id="bcmessage" value="" placeholder=""></textarea>
+                </div>
+
+          
+        </div>
+
+    </div>
+</div>
+
+</div>
+<div class="right">
+<h3>Broadcast Tools</h3>
+<div id="bctools">
+
+</div>
+</div>
+</div>
+
+<script src="http://yui.yahooapis.com/3.15.0/build/yui/yui-min.js"></script>
+<script src="js/cms.js"></script>
+</body>
+</htmL>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Server Sent Events</title>
+</head>
+<body>
+Server Sent Events.
+<div id="stream">
+
+</div>
+<script>
+
+var source = new EventSource('stream');
+source.addEventListener('message', function(e) {
+ // console.log(e.data);
+  var el = document.createElement('div');
+  el.innerHTML = e.data;
+  document.getElementById('stream').appendChild(el);
+
+}, false);
+
+source.addEventListener('open', function(e) {
+  // Connection was opened.
+  console.log('open');
+}, false);
+
+source.addEventListener('error', function(e) {
+  if (e.readyState == EventSource.CLOSED) {
+    // Connection was closed
+    console.log('error');
+  }
+}, false);
+
+</script>
+
+</body>
+</html>
